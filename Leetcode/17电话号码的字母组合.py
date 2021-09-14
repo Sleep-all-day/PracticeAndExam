@@ -1,7 +1,7 @@
 class Solution(object):
     def letterCombinations(self, digits):
         if not digits:
-            return 0
+            return list()
 
         phoneMap = {
             "2": "abc",
@@ -21,14 +21,16 @@ class Solution(object):
                 digit = digits[index]
                 for letter in phoneMap[digit]:
                     combination.append(letter)
-                    backtrack(index + 1)
+                    backtrack(index+1)
                     combination.pop()
+
+
 
         combination = list()
         combinations = list()
         backtrack(0)
-
         return combinations
+
 
 if __name__ =="__main__":
     s = Solution()
